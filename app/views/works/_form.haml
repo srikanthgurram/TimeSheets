@@ -11,19 +11,19 @@
     = form_for(@work) do |w|
       %div{:style => "padding: 5px"}
         = w.label :employee_id, 'Employee Name'            
-        = w.collection_select(:employee_id, Employee.all.order('first_name, last_name'), :id, :to_s, prompt: true)
+        = w.collection_select(:employee_id, Employee.all.order('name'), :id, :to_s, prompt: true)
       %div{:style => "padding: 5px"}
         = w.label :project_id, 'Project Name'
         = w.collection_select(:project_id, Project.all.order('name'), :id, :name, prompt: true)
       %div{:style => "padding: 5px"}
-        = w.label :date_time_performed, 'Date/Time Performed'
-        = w.datetime_select :date_time_performed
+        = w.label :date_time, 'Date/Time Performed'
+        = w.datetime_select :date_time
       %div{:style => "padding: 5px"}
-        = w.label :work_hours, 'Work hours'
-        = w.select(:work_hours, [1,2,3,4,5,6,7,8], prompt: true)
+        = w.label :hours, 'Work hours'
+        = w.select(:hours, [1,2,3,4,5,6,7,8], prompt: true)
       %div{:style => "padding: 5px; margin: 10px"}
-        = w.label :work_details
+        = w.label :details
         %br              
-        = w.text_area(:work_details, size: '60x20', :placeholder => "Enter work details" )
+        = w.text_area(:details, size: '60x20', :placeholder => "Enter work details" )
       %div{:style => "padding: 5px; margin: 10px   0 15px 0"}
         = w.submit (@work.new_record? ? "Add" : "Update"), class: "btn btn-large btn-primary"
