@@ -1,0 +1,35 @@
+- content_for :head do
+  %title #{@employee} details
+
+%h4 Employee Details
+%div{:class => "btn-group"}
+  %button{:type => "button", :class => "btn btn-info dropdown-toggle", data: {toggle: "dropdown"}}
+    Update
+    %span{:class => "caret"}
+    
+  %ul{:class => "dropdown-menu", :role => "menu"}
+    %li= link_to "Edit", edit_employee_path(@employee)
+    %li= link_to "Delete", @employee, :method => "delete", data: { confirm: "Are You sure?" }
+
+%hr
+= image_tag "empty_profile_male.jpg", alt: "Profile", class: "img-circle", size: "140x140"
+%ul  
+  %li 
+    %strong Employee Name:
+    = @employee.first_name+" "+@employee.last_name
+  %li
+    %strong First Name:
+    = @employee.first_name
+  %li
+    %strong Last Name
+    = @employee.last_name
+  %li
+    %strong User Name:
+    = @employee.username
+  %li
+    %strong Work: 
+    = link_to "Details", {:controller => 'employees', :action => 'work'}
+
+%hr
+- content_for :aside do
+  = render "sidebar"
