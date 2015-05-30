@@ -1,0 +1,32 @@
+- content_for :head do
+  %title Work details
+
+%h4 Work Details
+%div{:class => "btn-group"}
+  %button{:type => "button", :class => "btn btn-info dropdown-toggle", data: {toggle: "dropdown"}}
+    Update
+    %span{:class => "caret"}
+    
+  %ul{:class => "dropdown-menu", :role => "menu"}
+    %li= link_to "Edit", edit_work_path(@work)
+    %li= link_to "Delete", @work, :method => "delete", data: { confirm: "Are You sure?" }
+
+%hr
+%table.table.table-hover
+  %thead
+    %tr
+      %th Employee
+      %th Project
+      %th Date time
+      %th Details
+      %th Hours  
+  %tbody
+    %tr
+      %td= link_to @work.employee, @work.employee
+      %td= link_to @work.project.name, @work.project
+      %td= @work.date_time_performed
+      %td= @work.work_details
+      %td= @work.work_hours
+
+- content_for(:aside) do
+  = render "sidebar"

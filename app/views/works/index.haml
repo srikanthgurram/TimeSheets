@@ -1,0 +1,18 @@
+- content_for :head do
+  %title All the Works details
+%h3 Works Info
+%hr
+%h4 All Works details
+%table.table.table-hover
+  %tr
+    %th Employee
+    %th Project
+    %th Date
+    %th Work details
+    %th Hours
+
+  = render partial: "works", collection: @works
+= will_paginate @works
+
+- content_for(:aside) do
+  = render "sidebar"

@@ -1,0 +1,10 @@
+-#Head section
+- content_for :head do
+  %title Add new work
+
+-# Form
+= render "form"
+
+-#Sidebar
+- content_for(:aside) do
+  = render "sidebar"
