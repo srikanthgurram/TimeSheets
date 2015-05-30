@@ -1,0 +1,25 @@
+-if @project.errors.any?
+  .alert.alert-danger{:role => "alert"}
+    %p Please fix the following #{pluralize(@project.errors.count, "error")}:
+    %ul
+    - @project.errors.full_messages.each do |msg|
+      %li= msg
+
+%h1= (@project.new_record? ? "Add new Project" : "Update Project")
+.row
+  .span6.offset3
+    = form_for(@project) do |p|
+      %div
+        = p.label :name, 'Project Name'
+        = p.text_field :name
+      %div
+        = p.label :default_rate, 'Default Rate $'
+        = p.number_field :default_rate
+      %div
+        = p.label :company_id
+        = p.collection_select(:company_id, Company.all.order('name'), :id, :name, prompt: true)
+      %div
+        = p.label :client_id
+        = p.collection_select(:client_id, Client.all.order('name'), :id, :name, prompt: true)
+      %div
+        = p.submit (@project.new_record? ? "Add" : "Update"), class: "btn btn-large btn-primary"

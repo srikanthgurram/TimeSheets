@@ -1,0 +1,21 @@
+- content_for :head do
+  %title #{@project.name} work Details
+
+.panel.panel-default
+  .panel-heading All the Works
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Employee
+          %th Project
+          %th Date time
+          %th Details
+          %th Hours
+      %tbody
+      = render partial: "works/works", collection: @project_works
+
+= will_paginate @project_works 
+
+- content_for(:aside) do
+  = render "sidebar"
