@@ -1,0 +1,13 @@
+<% @current_user = current_user %>
+<ul class="nav navbar-nav pull-right">
+  <li class="dropdown">              
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name %><b class="caret"></b>  </a>
+    <ul class="dropdown-menu">
+        <li disable><%=link_to "Profile", "#" %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Log out", '/logout'%>
+        </li>
+    </ul>              
+  </li><!-- Results drop down -->
+  <li> <%= image_tag @current_user.image, size: "50x50" %> </li>
+</ul> <!-- Right Nav items -->

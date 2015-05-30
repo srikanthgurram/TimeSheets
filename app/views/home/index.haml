@@ -1,8 +1,13 @@
-%h1 Welcome to Timesheets
+%h1 Dashboard
 
-%ul
-  %li= link_to "Employees", employees_path
-  %li= link_to "Projects", projects_path
-  %li= link_to "Clients", clients_path
-  %li= link_to "Companies", companies_path
-  %li= link_to "Works", works_path
+.row
+  .col-xs-4.col-sm-3
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Admin Tasks
+      %ul.list-group
+        %li.list-group-item= link_to "Employees", employees_path
+        %li.list-group-item= link_to "Projects", projects_path
+        %li.list-group-item= link_to "Clients", clients_path
+        %li.list-group-item= link_to "Companies", companies_path
+        %li.list-group-item= link_to "Works", works_path

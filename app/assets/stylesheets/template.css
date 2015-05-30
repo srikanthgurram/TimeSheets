@@ -1,0 +1,58 @@
+body {
+    padding-top: 50px;
+    
+}
+
+.custom-background {
+	background-color: #EAEAEA;
+}
+.starter-template {
+  padding: 15px 15px;
+  text-align: center;
+}
+
+/*Form styles*/
+
+.errors {
+	color: Red;
+}
+
+span.company {
+font-family: Helvetica, Arial;
+color: #5CB85C;
+}
+
+.brand-text-medium {
+    font-family: Helvetica, Arial;
+    font-size: x-large;
+    text-align: center;
+    padding-top: 20px;
+    /*font-weight: 600;*/
+}
+
+.brand-text-large {
+    font-family: Helvetica, Arial;
+    font-size: xx-large;
+    text-align: center;
+    padding-top: 20px;
+    /*font-weight: 600;*/
+}
+
+.login {
+    margin-left: auto;
+    margin-right: auto;
+    /*height: 200px;*/
+    left: 50%;
+    margin-left: -160px;
+    /*padding-top: 20px;*/
+    position: absolute;
+    
+    /*top: 50%;*/
+    width: 500px;
+}
+
+.login-flash-messages {
+    padding-top: 70px;
+    text-align: center;
+
+}
