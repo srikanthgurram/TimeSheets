@@ -1,0 +1,14 @@
+- if @company.errors.any?
+  .alert.alert-danger{:role => "alert"}
+    %p Please fix the following #{pluralize(@company.errors.count, "error")}
+    %ul
+      - @company.errors.full_messages.each do |msg|
+        %li= msg
+
+%h1= (@company.new_record? ? "Add new Company" : "Update Employee details")
+.row
+  .span6.offset3
+    = form_for(@company) do |f|
+      = f.label :name
+      = f.text_field :name
+      = f.submit (@company.new_record? ? "Add" : "Update"), class: "btn btn-large btn-primary"
