@@ -1,0 +1,10 @@
+-#Head section
+- content_for :head do
+  %title Edit #{@client.name} work details
+
+-#Form
+= render "form"
+
+-#Sidebar
+- content_for(:aside) do
+  = render "sidebar"
