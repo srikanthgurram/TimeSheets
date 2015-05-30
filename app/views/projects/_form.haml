@@ -11,13 +11,7 @@
     = form_for(@project) do |p|
       %div
         = p.label :name, 'Project Name'
-        = p.text_field :name
-      %div
-        = p.label :default_rate, 'Default Rate $'
-        = p.number_field :default_rate
-      %div
-        = p.label :company_id
-        = p.collection_select(:company_id, Company.all.order('name'), :id, :name, prompt: true)
+        = p.text_field :name      
       %div
         = p.label :client_id
         = p.collection_select(:client_id, Client.all.order('name'), :id, :name, prompt: true)

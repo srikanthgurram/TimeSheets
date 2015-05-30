@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
 
     #Controller to save new Client
     def create
-      @client = Client.new(params[:client].permit(:name, :company_id))
+      @client = Client.new(user_params)
       if @client.valid?
         @client.save
         flash[:notice] = "Successfully added new client"
@@ -40,7 +40,7 @@ class ClientsController < ApplicationController
     def update
       @client = Client.find(params[:id])
 
-      if @client.update(params[:client].permit(:name, :company_id))
+      if @client.update(user_params)
         flash[:notice] = "Successfully updated the client"
         redirect_to @client
       else
@@ -50,14 +50,19 @@ class ClientsController < ApplicationController
 
     #Delete company records
     def destroy
-    @client = Client.find(params[:id])
-    if @client.destroy
-      flash[:notice] = "Client deleted Successfully"
-      redirect_to @client
-    else
-      flash[:notice] = "Error in deleting the Client"
-      redirect_to @client
+      @client = Client.find(params[:id])
+      if @client.destroy
+        flash[:notice] = "Client deleted Successfully"
+        redirect_to @client
+      else
+        flash[:notice] = "Error in deleting the Client"
+        redirect_to @client
+      end
     end
-  end
+
+    private
+      def user_params
+        params[:client].permit(:name, :company_id)
+      end
 
 end

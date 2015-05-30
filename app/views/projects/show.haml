@@ -18,10 +18,7 @@
       %strong Project Name: 
       #{@project.name}
     %li
-      %strong Default Rate: 
-      #{@project.default_rate}
-    %li
-      %strong All the work done: 
+      %strong Work details: 
       #{link_to "Details", {:controller => 'projects', :action => 'works'}}
 
 - content_for(:aside) do

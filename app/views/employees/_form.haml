@@ -10,14 +10,8 @@
   .span6.offset3
     = form_for(@employee) do |e|
       %div
-        = e.label :first_name
-        = e.text_field :first_name
-      %div
-        = e.label :last_name
-        = e.text_field :last_name
-      %div
-        = e.label :username
-        = e.text_field :username
+        = e.label :name
+        = e.text_field :name
       %div
         = e.label :company_id
         = e.collection_select(:company_id, Company.all.order('name'), :id, :name, prompt: true)

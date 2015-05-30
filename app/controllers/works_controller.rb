@@ -20,7 +20,7 @@ class WorksController < ApplicationController
   
   #Controller to sav new Work
   def create
-    @work = Work.new(params[:work].permit(:employee_id, :project_id, :work_hours, :work_details, :date_time_performed))
+    @work = Work.new(user_params)
     if @work.valid?
       @work.save
       flash[:notice] = 'Successfully added new work details'
@@ -38,7 +38,7 @@ class WorksController < ApplicationController
   #Update Work details
   def update
     @work =  Work.find(params[:id])
-    if @work.update(params[:work].permit(:employee_id, :project_id, :work_hours, :work_details, :date_time_performed))
+    if @work.update(user_params)
       flash[:notice] = 'Successfully updated work details'
       redirect_to @work
     else
@@ -57,5 +57,10 @@ class WorksController < ApplicationController
       redirect_to @work
     end
   end
+
+  private
+    def user_params
+      params[:work].permit(:employee_id, :project_id, :hours, :work_details, :date_time)
+    end
 
 end

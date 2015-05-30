@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
 
 	#Controller to save new Employee record
 	def create
-		@employee = Employee.new(params[:employee].permit(:company_id, :first_name, :last_name, :username))
+		@employee = Employee.new(user_params)
 		if @employee.valid?
 			@employee.save
 			flash[:notice] = "Successfully added new Employee"
@@ -55,7 +55,7 @@ class EmployeesController < ApplicationController
 	#Update employee records
 	def update
 		@employee = Employee.find(params[:id])
-		if @employee.update(params[:employee].permit(:company_id, :first_name, :last_name, :username))
+		if @employee.update(user_params)
 			flash[:notice] = "Successfully Updated Employee details"
 			redirect_to @employee
 		else
@@ -65,14 +65,19 @@ class EmployeesController < ApplicationController
 
 	#Delete Employee record
 	def destroy
-    @employee = Employee.find(params[:id])
-    if @employee.destroy
-      flash[:notice] = "Employee deleted Successfully"
-      redirect_to @employee
-    else
-      flash[:notice] = "Error in deleting the Employee"
-      redirect_to @employee
+	    @employee = Employee.find(params[:id])
+	    if @employee.destroy
+	      flash[:notice] = "Employee deleted Successfully"
+	      redirect_to @employee
+	    else
+	      flash[:notice] = "Error in deleting the Employee"
+	      redirect_to @employee
+	    end
+  	end
+
+   private
+    def user_params
+      params[:employee].permit(:company_id, :name)
     end
-  end
 
 end

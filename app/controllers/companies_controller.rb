@@ -15,16 +15,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  #welcome method
-  def welcome
-    #render plain: "Page Not Found", status: 404
-    #render plain: "Welcome to Timer Tracker"
-    #render layout: true
-    render html: "<strong>Page Not Found</strong>".html_safe, status: 404
-    #render js: "alert('Hello Rails');"
-    #render file: "README.rdoc", content_type: "application/rss"
-  end
-
   #Controller to add new Company
   def new
     @company = Company.new
@@ -32,7 +22,7 @@ class CompaniesController < ApplicationController
 
   #Controller to save new Company
   def create
-    @company = Company.new(params[:company].permit(:name))
+    @company = Company.new(user_params)
     if @company.valid?
       @company.save
       flash[:notice] = "Successfully updated Company"
@@ -50,7 +40,7 @@ class CompaniesController < ApplicationController
   #Update company records
   def update
     @company = Company.find(params[:id])
-    if @company.update(params[:company].permit(:name))
+    if @company.update(user_params)
       flash[:notice] = "Successfully updated Company"
       redirect_to @company
     else
@@ -69,5 +59,10 @@ class CompaniesController < ApplicationController
       redirect_to @company
     end
   end
+
+  private
+    def user_params
+      params[:company].permit(:name)
+    end
 
 end

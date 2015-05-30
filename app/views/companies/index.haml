@@ -1,11 +1,13 @@
 - content_for :head do
   %title Companies Information
 
-%h3 Companies Information
-%hr
-%h4 List of all Companies
-%ul
-  = render partial: "company", collection: @companies
+%h4 All the Companies Information
+%table.table.table-hover
+  %thead
+    %tr
+      %th Name
+  %tbody
+  	= render "index"
 
 - content_for(:aside) do
   = render "sidebar"
