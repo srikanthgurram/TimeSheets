@@ -37,10 +37,10 @@ gem 'autoprefixer-rails'
 gem 'will_paginate', '~> 3.0.6'
 gem 'passenger'
 #gem 'therubyrhino'
-#gem 'json'
+gem 'json'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2'
-#gem 'simpleconfig'
+gem 'simpleconfig'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
