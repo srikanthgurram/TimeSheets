@@ -35,11 +35,11 @@ gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 #for Pagination
 gem 'will_paginate', '~> 3.0.6'
-
+gem 'passenger'
 #gem 'therubyrhino'
 #gem 'json'
-#gem 'omniauth', '~> 1.2.2'
-#gem 'omniauth-google-oauth2'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-google-oauth2'
 #gem 'simpleconfig'
 
 group :development, :test do
