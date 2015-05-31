@@ -58,7 +58,9 @@
               </ul>
             </li> <!-- Admin tasks -->
           </ul><!-- Left Nav items -->
-          
+          <%if user_logged_in? %>
+            <%= render 'layouts/partials/user_dropdown' %>
+          <% end %>
         </div><!--/.nav-collapse -->
       </div>
     </nav>

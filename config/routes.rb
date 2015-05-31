@@ -19,8 +19,18 @@ Rails.application.routes.draw do
   resources :clients
   resources :employees
   resources :works
-  
-  root 'home#index'
+  resources :sessions  
+  root to: 'sessions#new'
+
+  #   Sessions routes
+  get 'login', to: 'sessions#new'  
+  get '/auth/failure', to: 'sessions#failure'
+  get '/oauth2callback', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/session_expired', to: 'sessions#expired', as: 'session_expired'
+  post '/refresh_token', to: 'sessions#refresh_token'
+
+
   # Example resource route with options:
   #   resources :products do
   #     member do

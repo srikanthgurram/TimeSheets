@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timesheets</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <div class="container">      
+      <div class="brand-text-medium">       
+          <span>Welcome to</span>
+      </div>
+
+      <div class="brand-text-large">
+          <span class="company">Company</span>
+          <span>Time Sheets<span class="company">.</span></span>
+           
+      </div>
+     <div class="row">
+      <%= yield %>
+     </div>
+    <div class="row login-flash-messages">
+        <%= render 'layouts/partials/flashmessages' %>
+     </div>
+  </div><!-- /.container -->
+</body>
+<footer>
+</footer>
+</html>
