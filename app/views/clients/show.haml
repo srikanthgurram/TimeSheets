@@ -19,16 +19,5 @@
   %strong Company
   = @client.company.name
 
-%hr
-%h4 All the Projects  
-%table.table.table-hover
-  %thead
-    %tr
-      %th Project
-      %th Default Rate
-  %tbody
-    = render partial: "projects/project", collection: @client_projects
-= will_paginate @client_projects
-
 - content_for :aside do
   = render "sidebar"

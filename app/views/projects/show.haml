@@ -17,9 +17,6 @@
     %li
       %strong Project Name: 
       #{@project.name}
-    %li
-      %strong Work details: 
-      #{link_to "Details", {:controller => 'projects', :action => 'works'}}
 
 - content_for(:aside) do
   = render "sidebar"

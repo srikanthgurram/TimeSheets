@@ -1,13 +1,18 @@
 - content_for :head do
   %title Clients Information
+/ Action Bar
+= render "actions"
 
 %h4 Clients information
-%table.table.table-hover
-  %thead
-    %tr
-      %th Name
-  %tbody
-    = render "index"
+.row
+  .col-xs-4.col-sm-3    
+    .table-responsive  
+      %table.table.table-striped.table-hover    
+        %thead        
+          %tr
+            %th Name
+        %tbody
+          = render "index"
 
 - content_for(:aside) do
   = render "sidebar"

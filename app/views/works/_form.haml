@@ -11,7 +11,7 @@
     = form_for(@work) do |w|
       %div{:style => "padding: 5px"}
         = w.label :employee_id, 'Employee Name'            
-        = w.collection_select(:employee_id, Employee.all.order('name'), :id, :to_s, prompt: true)
+        = w.collection_select(:employee_id, Employee.all.order('name'), :id, :name, prompt: true)
       %div{:style => "padding: 5px"}
         = w.label :project_id, 'Project Name'
         = w.collection_select(:project_id, Project.all.order('name'), :id, :name, prompt: true)
@@ -20,7 +20,7 @@
         = w.datetime_select :date_time
       %div{:style => "padding: 5px"}
         = w.label :hours, 'Work hours'
-        = w.select(:hours, [1,2,3,4,5,6,7,8], prompt: true)
+        = w.text_field :hours
       %div{:style => "padding: 5px; margin: 10px"}
         = w.label :details
         %br              

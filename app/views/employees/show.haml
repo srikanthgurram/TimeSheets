@@ -16,19 +16,7 @@
 %ul  
   %li 
     %strong Employee Name:
-    = @employee.first_name+" "+@employee.last_name
-  %li
-    %strong First Name:
-    = @employee.first_name
-  %li
-    %strong Last Name
-    = @employee.last_name
-  %li
-    %strong User Name:
-    = @employee.username
-  %li
-    %strong Work: 
-    = link_to "Details", {:controller => 'employees', :action => 'work'}
+    = @employee.name+" "+@employee.name
 
 %hr
 - content_for :aside do
