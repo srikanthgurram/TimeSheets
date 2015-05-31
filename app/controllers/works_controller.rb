@@ -60,7 +60,7 @@ class WorksController < ApplicationController
 
   private
     def user_params
-      params[:work].permit(:employee_id, :project_id, :hours, :work_details, :date_time)
+      params[:work].permit(:employee_id, :project_id, :hours, :details, :date_time)
     end
 
 end

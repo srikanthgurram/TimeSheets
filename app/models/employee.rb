@@ -6,5 +6,5 @@ class Employee < ActiveRecord::Base
 
 	#db validations
 	validates :name, presence: true
-  	validates :company_id, presence: true
+  validates :company_id, presence: true
 end

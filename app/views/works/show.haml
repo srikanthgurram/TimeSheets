@@ -22,11 +22,11 @@
       %th Hours  
   %tbody
     %tr
-      %td= link_to @work.employee, @work.employee
+      %td= link_to @work.employee.name, @work.employee
       %td= link_to @work.project.name, @work.project
-      %td= @work.date_time_performed
-      %td= @work.work_details
-      %td= @work.work_hours
+      %td= @work.date_time
+      %td= @work.details
+      %td= @work.hours
 
 - content_for(:aside) do
   = render "sidebar"
