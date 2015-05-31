@@ -6,5 +6,5 @@ class Work < ActiveRecord::Base
 	#db validations
 	validates :details, presence: true
   	validates :employee_id, presence: true
-  	validates :client_id, presence: true
+  	validates :project_id, presence: true
 end
